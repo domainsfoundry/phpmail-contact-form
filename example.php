@@ -5,11 +5,12 @@
   <meta charset="utf-8">
   <title>An example of a simple Contact Form using PHP mail() function</title>
 </head>
+
 <body>
   <?php
   
   // The email address where the message will be sent to. Can be any email address.
-  $to = "hello@example.com";
+  $to = "you@example.com";
   
   // The email address the message will be sent from. Must be an email created in cPanel.
   $from = "postmaster@example.com";
@@ -17,7 +18,7 @@
   //The subject of your email message.
   $subject    = "An example of a simple Contact Form using PHP mail() function";
   
-  // If the email contains HTML. Set to falkse if plain-text.
+  // If the email contains HTML. Set to false if plain-text.
   $send_html  = true;
   
   
@@ -81,22 +82,20 @@
     //if "email" is not filled out, display the form
     ?>
     
-    <form method="post">
-      <input name="redirect" type="hidden" value="myform.php" >
+    <form method="post" validate="required:true">
       <fieldset>
         <legend>Example Contact Form</legend>
         <dl>
           <dt><label for="name">Name</label></dt>
-          <dd><input type="text" name="name"/></dd>
+          <dd><input type="text" name="name" required></dd>
           <dt><label for="email">E-mail</label></dt>
-          <dd><input type="text" name="email"/></dd>
+          <dd><input type="email" name="email" required></dd>
           <dt><label for="message">Comments</label></dt>
-          <dd><textarea name="message"></textarea></dd>
+          <dd><textarea name="message" required></textarea></dd>
         </dl>
         <input type="submit" name="submit" value="Submit"/>
       </fieldset>
     </form>
-    
     <?php
   }
   ?>
