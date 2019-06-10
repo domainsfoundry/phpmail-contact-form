@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-    <title>An example of a simple Contact Form using PHP mail() function</title>
+  <title>An example of a simple Contact Form using PHP mail() function</title>
 </head>
 <body>
   <?php
