@@ -16,11 +16,13 @@
   $from = "postmaster@example.com";
   
   //The subject of your email message.
-  $subject    = "An example of a simple Contact Form using PHP mail() function";
+  $subject = "An example of a simple Contact Form using PHP mail() function";
   
   // If the email contains HTML. Set to false if plain-text.
-  $send_html  = true;
+  $send_html = true;
   
+  // Set to true if you wish to redirect to the last page.
+  $redirect = false;
   
   $headers = "From: $from" . "\r\n";
   
@@ -77,7 +79,14 @@
      * syntax mail(to,subject,message,headers,parameters);
      */
     mail( $to, $subject, $msg, $headers);
-    echo "Your message was sent successfully!";
+    
+    //if redirect is true, redirect back to the previous page
+    if ( $redirect ) {
+      header('Location: ' . $_SERVER['HTTP_REFERER'] );
+      exit;
+    } else {
+      echo "Your message was sent successfully!";
+    } 
   } else {  
     //if "email" is not filled out, display the form
     ?>
